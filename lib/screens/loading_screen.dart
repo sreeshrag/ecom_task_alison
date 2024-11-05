@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:ecom_task/global/api_endpoints.dart';
 import 'package:ecom_task/model/guest_user_model.dart';
+import 'package:ecom_task/screens/home_screen.dart';
 import 'package:ecom_task/services/api_response.dart';
 import 'package:ecom_task/services/user_services.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
       var data = jsonDecode(response.body.toString());
       if (response.statusCode == 200) {
         debugPrint('guestloginsuccess');
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => HomeScreen()), (route) => false);
+
       } else {}
     }
       void _guestLogin() async {
@@ -89,6 +92,12 @@ class _LoadingScreenState extends State<LoadingScreen> {
         backgroundColor: Colors.redAccent,
       ));
     }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadUserInfo();
   }
 
   @override

@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
      
       themeMode: ThemeMode.system,
       theme: ThemeData(textTheme: TextTheme(bodyLarge: TextStyle(fontSize: 14 * 1.0))),
-      home:  HomeScreen(),
+      home:  LoadingScreen(),
     );
   }
 }
